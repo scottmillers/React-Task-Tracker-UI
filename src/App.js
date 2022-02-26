@@ -6,6 +6,9 @@ import AddTask from './components/AddTask'
 import Footer from './components/Footer'
 import About from './components/About'
 
+//const { CREDENTIALS_API_TASKS } = window.config;
+const CREDENTIALS_API_TASKS = 'http://localhost:5000/tasks'
+
 function App() {
   
     const [tasks, setTasks] = useState([])
@@ -22,7 +25,9 @@ function App() {
     }, [])
 
     const fetchTasks = async () => {
-       const res = await fetch("http://localhost:5000/tasks")
+       //const res = await fetch("http://localhost:5000/tasks")
+       console.log()
+       const res = await fetch(CREDENTIALS_API_TASKS)
        const data = await res.json()
        console.log(data)
        return data
